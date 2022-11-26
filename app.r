@@ -5,27 +5,18 @@ library(tidyverse)
 
 # the 2022 CDC PLACES data is available at https://www.cdc.gov/places/about/data.html 
 df <- read.csv("https://chronicdata.cdc.gov/api/views/swc5-untb/rows.csv?accessType=DOWNLOAD&api_foundry=true")
-df <- df % relocate(LocationID) %>% rename()
-
+df <- df %>% relocate(LocationID) %>% rename("region" = LocationID)
 
 # df$LocationID = zip-code
 # df$LocationDesc = city
 # df$LocationName = county
 # df$StateAbbr = state
 # df$StateDesc = state
-
-
-
 # very nice zip-code tabular area (ZCTA) visualization from https://arilamstein.com/creating-zip-code-choropleths-choroplethrzip/
 # will use this to one day make a map of antibiotic resistance by zip-code
-library(choroplethr)
-library(choroplethrZip)
-
-
-
-
 ui <- fluidPage(
   "Hello, world!"
+  head(df)
 )
 
 server <- function(input, output, session) {
