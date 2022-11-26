@@ -1,4 +1,8 @@
+# sinlge-file app.r from https://mastering-shiny.org/basic-app.html
 library(shiny)
-source("ui.R")
-source("server.R")
-shinyApp(ui = ui, server = server)
+ui <- fluidPage(
+  "Hello, world!"
+)
+server <- function(input, output, session) {
+}
+shinyApp(ui, server)
