@@ -6,3 +6,8 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 }
 shinyApp(ui, server)
+
+#publish to shinyapps.io using https://shiny.rstudio.com/articles/shinyapps.html section: "Deploying a Shiny app"
+library(rsconnect)
+deployApp()
+#publishing to shinyapps.io in RStudio easier, thanks to https://statsandr.com/blog/how-to-publish-shiny-app-example-with-shinyapps-io/
